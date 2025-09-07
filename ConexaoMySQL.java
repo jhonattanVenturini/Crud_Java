@@ -6,7 +6,7 @@ public class ConexaoMySQL {
     public static void main(String[] args) {
         String url = "jdbc:mysql://localhost:3306/exemplo"; // nome do seu banco
         String usuario = "root"; // seu usuário do MySQL
-        String senha = "jhow25@#"; // sua senha do MySQL
+        String senha = ""; // sua senha do MySQL
 
         try {
             Connection conexao = DriverManager.getConnection(url, usuario, senha);
