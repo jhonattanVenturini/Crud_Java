@@ -50,75 +50,127 @@ CREATE TABLE IF NOT EXISTS pessoas (
     email VARCHAR(100) UNIQUE NOT NULL,
     senha VARCHAR(255) NOT NULL
 );
-Executar:
+Executar script no terminal MySQL: 
 
-bash
-Copiar código
-mysql -u root -p < database/exemplo.sql
-🔧 Como Rodar
-1️⃣ Clone o projeto
+mysql -u root -p < database/exemplo.sql 
+ 
 
-bash
-Copiar código
-git clone https://github.com/seu-usuario/nome-do-repo.git
-cd nome-do-repo
-2️⃣ Adicione o MySQL Connector
+ 
 
-Baixe o .jar aqui
+🔧 Como Rodar 
 
-Coloque em lib/mysql-connector-j-9.0.0.jar
+1️⃣ Clone o projeto 
 
-3️⃣ Compile
-Windows:
+git clone https://github.com/seu-usuario/nome-do-repo.git 
+cd nome-do-repo 
+ 
 
-bash
-Copiar código
-javac -cp "lib/mysql-connector-j-9.0.0.jar;src" src/*.java
-Linux/Mac:
+2️⃣ Adicione o MySQL Connector 
 
-bash
-Copiar código
-javac -cp "lib/mysql-connector-j-9.0.0.jar:src" src/*.java
-4️⃣ Execute
-Windows:
+# Baixe o .jar aqui: https://dev.mysql.com/downloads/connector/j/ 
+# Coloque em lib/mysql-connector-j-9.0.0.jar 
+ 
 
-bash
-Copiar código
-java -cp "lib/mysql-connector-j-9.0.0.jar;src" Main
-Linux/Mac:
+3️⃣ Compile o projeto 
 
-bash
-Copiar código
-java -cp "lib/mysql-connector-j-9.0.0.jar:src" Main
-📌 Funcionalidades
-Operação	Descrição
-Create	Cadastrar clientes
-Read	Listar todos clientes
-Update	Atualizar cliente pelo ID
-Delete	Remover cliente pelo ID
+Windows: 
 
-📸 Exemplo de Execução
-makefile
-Copiar código
-===== MENU CRUD - CLIENTES =====
-1 - Cadastrar Cliente
-2 - Listar Clientes
-3 - Atualizar Cliente
-4 - Deletar Cliente
-0 - Sair
-Escolha uma opção: 1
+javac -cp "lib/mysql-connector-j-9.0.0.jar;src" src/*.java 
+ 
 
-Nome: João Silva
-Idade: 25
-Email: joao@email.com
-Senha: 12345
-✅ Pessoa cadastrada com sucesso!
-🔒 Segurança
-Senhas são criptografadas em SHA-256, garantindo que não fiquem em texto puro.
+Linux/Mac: 
 
-🚀 Próximos Passos
-Buscar cliente por email ou ID específico
+javac -cp "lib/mysql-connector-j-9.0.0.jar:src" src/*.java 
+ 
 
-Criar API REST com Spring Boot
+4️⃣ Execute o programa 
+
+Windows: 
+
+java -cp "lib/mysql-connector-j-9.0.0.jar;src" Main 
+ 
+
+Linux/Mac: 
+
+java -cp "lib/mysql-connector-j-9.0.0.jar:src" Main 
+ 
+
+ 
+
+📌 Funcionalidades 
+
+Operação 
+
+Emoji 
+
+Descrição 
+
+Create 
+
+🟢 
+
+Cadastrar clientes 
+
+Read 
+
+🔵 
+
+Listar todos clientes 
+
+Update 
+
+🟡 
+
+Atualizar cliente pelo ID 
+
+Delete 
+
+🔴 
+
+Remover cliente pelo ID 
+
+ 
+
+📸 Exemplo de Execução 
+
+===== MENU CRUD - CLIENTES ===== 
+1 - Cadastrar Cliente 
+2 - Listar Clientes 
+3 - Atualizar Cliente 
+4 - Deletar Cliente 
+0 - Sair 
+Escolha uma opção: 1 
+ 
+Nome: João Silva 
+Idade: 25 
+Email: joao@email.com 
+Senha: 12345 
+✅ Pessoa cadastrada com sucesso! 
+ 
+
+ 
+
+🔒 Segurança 
+
+As senhas são criptografadas em SHA-256, garantindo que não fiquem em texto puro. 
+
+Exemplo no banco: 
+
+ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f 
+ 
+
+ 
+
+🚀 Próximos Passos 
+
+🔍 Buscar cliente por email ou ID específico 
+
+🌐 Criar API REST com Spring Boot 
+
+🎨 Interface gráfica em JavaFX ou Angular/React 
+
+🧪 Adicionar testes unitários para validação de dados 
+
+ 
 
 Interface gráfica em JavaFX ou Angular/React
