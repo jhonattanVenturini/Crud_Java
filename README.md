@@ -1,49 +1,48 @@
-📝 CRUD em Java + MySQL (POO)
+# 🚀 CRUD em Java + MySQL (POO)
 
-Este projeto é um CRUD completo (Create, Read, Update, Delete) desenvolvido em Java com POO e integrado ao MySQL.
-O sistema cadastra clientes com os seguintes dados:
+![Java](https://img.shields.io/badge/Java-17-blue)
+![MySQL](https://img.shields.io/badge/MySQL-8.0-blue)
 
-Nome 🧑
+Um **CRUD completo** (Create, Read, Update, Delete) desenvolvido em **Java** com **POO**, integrado ao **MySQL**, com senhas criptografadas (SHA-256).  
 
-Idade 🎂
+---
 
-E-mail 📧
+## ⚙️ Tecnologias Utilizadas
+- **Java 17+**
+- **MySQL 8+**
+- **JDBC (MySQL Connector)**
+- **POO (Programação Orientada a Objetos)**
 
-Senha 🔑 (armazenada de forma criptografada com SHA-256)
+---
 
-⚙️ Tecnologias Utilizadas
+## 📂 Estrutura do Projeto
 
-Java 17+ (funciona também em versões anteriores)
-
-MySQL 8+
-
-JDBC (MySQL Connector)
-
-POO (Programação Orientada a Objetos)
-
-📂 Estrutura do Projeto
 src/
- ├── Pessoa.java          # Classe modelo (entidade)
- ├── PessoaDAO.java       # Classe DAO (operações CRUD no banco)
- ├── Criptografia.java    # Classe utilitária para criptografia de senha (SHA-256)
- └── Main.java            # Classe principal com menu interativo
+├── Pessoa.java
+├── PessoaDAO.java
+├── Criptografia.java
+└── Main.java
 
 lib/
- └── mysql-connector-j-9.0.0.jar   # Conector JDBC do MySQL
+└── mysql-connector-j-9.0.0.jar
 
 database/
- └── exemplo.sql          # Script para criar banco e tabela
+└── exemplo.sql
 
-🗄️ Banco de Dados
+sql
+Copiar código
 
-Na pasta database/ existe o arquivo exemplo.sql que cria o banco e a tabela necessária.
+> ⚠️ A pasta `lib/` é obrigatória para o **driver JDBC**.
 
-📌 Conteúdo do arquivo exemplo.sql
--- Criação do banco de dados
+---
+
+## 🗄️ Banco de Dados
+Arquivo `database/exemplo.sql` para criar banco e tabela:
+
+```sql
 CREATE DATABASE IF NOT EXISTS exemplo;
 USE exemplo;
 
--- Criação da tabela pessoas
 CREATE TABLE IF NOT EXISTS pessoas (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
@@ -51,67 +50,56 @@ CREATE TABLE IF NOT EXISTS pessoas (
     email VARCHAR(100) UNIQUE NOT NULL,
     senha VARCHAR(255) NOT NULL
 );
+Executar:
 
-🔧 Como executar o script
-
-No terminal do MySQL, rode:
-
+bash
+Copiar código
 mysql -u root -p < database/exemplo.sql
+🔧 Como Rodar
+1️⃣ Clone o projeto
 
-
-Isso vai criar o banco exemplo e a tabela pessoas.
-
-🔧 Como Rodar o Projeto
-
-Clone o repositório
-
+bash
+Copiar código
 git clone https://github.com/seu-usuario/nome-do-repo.git
 cd nome-do-repo
-
-
-Adicione o MySQL Connector
+2️⃣ Adicione o MySQL Connector
 
 Baixe o .jar aqui
-.
 
-Coloque o arquivo dentro da pasta lib/.
+Coloque em lib/mysql-connector-j-9.0.0.jar
 
-Exemplo: lib/mysql-connector-j-9.0.0.jar
-
-Compile os arquivos Java
-
-Windows (PowerShell ou CMD):
-
-javac -cp "lib/mysql-connector-j-9.0.0.jar;src" src/*.java
-
-
-Linux/Mac (bash/zsh):
-
-javac -cp "lib/mysql-connector-j-9.0.0.jar:src" src/*.java
-
-
-Execute o programa
-
+3️⃣ Compile
 Windows:
 
-java -cp "lib/mysql-connector-j-9.0.0.jar;src" Main
-
-
+bash
+Copiar código
+javac -cp "lib/mysql-connector-j-9.0.0.jar;src" src/*.java
 Linux/Mac:
 
+bash
+Copiar código
+javac -cp "lib/mysql-connector-j-9.0.0.jar:src" src/*.java
+4️⃣ Execute
+Windows:
+
+bash
+Copiar código
+java -cp "lib/mysql-connector-j-9.0.0.jar;src" Main
+Linux/Mac:
+
+bash
+Copiar código
 java -cp "lib/mysql-connector-j-9.0.0.jar:src" Main
-
 📌 Funcionalidades
-
-Cadastrar Cliente (Create)
-
-Listar Clientes (Read)
-
-Atualizar Cliente (Update)
-
-Excluir Cliente (Delete)
+Operação	Descrição
+Create	Cadastrar clientes
+Read	Listar todos clientes
+Update	Atualizar cliente pelo ID
+Delete	Remover cliente pelo ID
 
 📸 Exemplo de Execução
+makefile
+Copiar código
 ===== MENU CRUD - CLIENTES =====
 1 - Cadastrar Cliente
 2 - Listar Clientes
@@ -125,20 +113,12 @@ Idade: 25
 Email: joao@email.com
 Senha: 12345
 ✅ Pessoa cadastrada com sucesso!
-
 🔒 Segurança
-
-As senhas não ficam armazenadas em texto puro.
-Antes de salvar no banco, elas são convertidas em um hash SHA-256.
-
-Exemplo no banco:
-
-ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f
+Senhas são criptografadas em SHA-256, garantindo que não fiquem em texto puro.
 
 🚀 Próximos Passos
+Buscar cliente por email ou ID específico
 
-Implementar busca por email/ID específico.
+Criar API REST com Spring Boot
 
-Migrar para uma API REST com Spring Boot.
-
-Criar interface gráfica em JavaFX ou front-end em Angular/React.
+Interface gráfica em JavaFX ou Angular/React
