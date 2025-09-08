@@ -1,69 +1,144 @@
-📌 Projeto: CRUD em Java
+📝 CRUD em Java + MySQL (POO)
 
-Este projeto demonstra um sistema simples de CRUD (Create, Read, Update, Delete) desenvolvido em Java com integração ao MySQL.
+Este projeto é um CRUD completo (Create, Read, Update, Delete) desenvolvido em Java com POO e integrado ao MySQL.
+O sistema cadastra clientes com os seguintes dados:
 
-🔹 O objetivo é servir como base de estudo para conexão com banco de dados, manipulação de registros e boas práticas no desenvolvimento em Java.
+Nome 🧑
 
-⚙️ Funcionalidades
+Idade 🎂
 
-✅ Criar registros no banco de dados
-✅ Ler/Listar informações já salvas
-✅ Atualizar registros existentes
-✅ Excluir registros do banco
-✅ Criptografar senhas para maior segurança
+E-mail 📧
 
-🗂 Estrutura do Projeto
-Crud_Java/
-├── lib/                     # Dependências externas (JARs)
-├── ConexaoMySQL.java        # Classe de conexão com o MySQL
-├── Criptografia.java        # Funções para criptografar senhas/dados
-├── InserirPessoas.java      # Exemplo de inserção de registros
-└── exemplo_pessoas.sql      # Script inicial do banco de dados
+Senha 🔑 (armazenada de forma criptografada com SHA-256)
 
-🔧 Pré-requisitos
+⚙️ Tecnologias Utilizadas
 
-Antes de rodar o projeto, você precisa ter instalado:
+Java 17+ (funciona também em versões anteriores)
 
-☕ Java JDK 8+
+MySQL 8+
 
-🐬 MySQL Server
+JDBC (MySQL Connector)
 
-🖥 MySQL Workbench (opcional, para gerenciar o banco)
+POO (Programação Orientada a Objetos)
 
-📦 Driver JDBC do MySQL (mysql-connector-java-x.x.x.jar) adicionado na pasta lib
+📂 Estrutura do Projeto
+src/
+ ├── Pessoa.java          # Classe modelo (entidade)
+ ├── PessoaDAO.java       # Classe DAO (operações CRUD no banco)
+ ├── Criptografia.java    # Classe utilitária para criptografia de senha (SHA-256)
+ └── Main.java            # Classe principal com menu interativo
 
-🚀 Como executar o projeto
+lib/
+ └── mysql-connector-j-9.0.0.jar   # Conector JDBC do MySQL
 
-Clone este repositório
+database/
+ └── exemplo.sql          # Script para criar banco e tabela
 
-git clone https://github.com/jhonattanVenturini/Crud_Java.git
+🗄️ Banco de Dados
+
+Na pasta database/ existe o arquivo exemplo.sql que cria o banco e a tabela necessária.
+
+📌 Conteúdo do arquivo exemplo.sql
+-- Criação do banco de dados
+CREATE DATABASE IF NOT EXISTS exemplo;
+USE exemplo;
+
+-- Criação da tabela pessoas
+CREATE TABLE IF NOT EXISTS pessoas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    idade INT NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    senha VARCHAR(255) NOT NULL
+);
+
+🔧 Como executar o script
+
+No terminal do MySQL, rode:
+
+mysql -u root -p < database/exemplo.sql
 
 
-Configure o banco de dados
+Isso vai criar o banco exemplo e a tabela pessoas.
 
-Importe o script exemplo_pessoas.sql no seu MySQL
+🔧 Como Rodar o Projeto
 
-Altere os dados de conexão (usuário, senha, porta, banco) no arquivo ConexaoMySQL.java
+Clone o repositório
 
-Compile e rode o projeto
+git clone https://github.com/seu-usuario/nome-do-repo.git
+cd nome-do-repo
 
-javac -cp ".;lib/mysql-connector-java-x.x.x.jar" *.java
-java -cp ".;lib/mysql-connector-java-x.x.x.jar" InserirPessoas
 
-📖 Exemplo de Uso
+Adicione o MySQL Connector
 
-Ao rodar a classe InserirPessoas.java, um novo registro será adicionado ao banco.
-A classe Criptografia.java pode ser usada para proteger senhas antes de salvar.
+Baixe o .jar aqui
+.
 
-📌 Melhorias Futuras
+Coloque o arquivo dentro da pasta lib/.
 
-✨ Implementar interface gráfica (Java Swing ou JavaFX)
-✨ Criar API com Spring Boot para expor os dados via REST
-✨ Melhorar o tratamento de erros e mensagens ao usuário
-✨ Adicionar testes automatizados com JUnit
+Exemplo: lib/mysql-connector-j-9.0.0.jar
 
-👨‍💻 Autor
+Compile os arquivos Java
 
-Feito com 💙 por Jhonattan de Carvalho Venturini
+Windows (PowerShell ou CMD):
 
-🔗 Meu GitHub
+javac -cp "lib/mysql-connector-j-9.0.0.jar;src" src/*.java
+
+
+Linux/Mac (bash/zsh):
+
+javac -cp "lib/mysql-connector-j-9.0.0.jar:src" src/*.java
+
+
+Execute o programa
+
+Windows:
+
+java -cp "lib/mysql-connector-j-9.0.0.jar;src" Main
+
+
+Linux/Mac:
+
+java -cp "lib/mysql-connector-j-9.0.0.jar:src" Main
+
+📌 Funcionalidades
+
+Cadastrar Cliente (Create)
+
+Listar Clientes (Read)
+
+Atualizar Cliente (Update)
+
+Excluir Cliente (Delete)
+
+📸 Exemplo de Execução
+===== MENU CRUD - CLIENTES =====
+1 - Cadastrar Cliente
+2 - Listar Clientes
+3 - Atualizar Cliente
+4 - Deletar Cliente
+0 - Sair
+Escolha uma opção: 1
+
+Nome: João Silva
+Idade: 25
+Email: joao@email.com
+Senha: 12345
+✅ Pessoa cadastrada com sucesso!
+
+🔒 Segurança
+
+As senhas não ficam armazenadas em texto puro.
+Antes de salvar no banco, elas são convertidas em um hash SHA-256.
+
+Exemplo no banco:
+
+ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f
+
+🚀 Próximos Passos
+
+Implementar busca por email/ID específico.
+
+Migrar para uma API REST com Spring Boot.
+
+Criar interface gráfica em JavaFX ou front-end em Angular/React.
